@@ -1,0 +1,818 @@
+{
+  "definitions": {},
+  "info": {
+    "title": "@kent/api",
+    "version": "1.0.0-stable",
+    "license": {
+      "name": "Apache-2.0"
+    },
+    "description": "Specification JSONs: [v2](/api-spec/v2), [v3](/api-spec/v3).\n\nEntry test for Lifeaz Lead Dev job"
+  },
+  "paths": {
+    "/v1/clarks": {
+      "get": {
+        "summary": "/v1/clarks",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "content": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "serial": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "object",
+                            "properties": {
+                              "at": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "string"
+                              },
+                              "type": {
+                                "type": "number"
+                              },
+                              "details": {
+                                "type": "string"
+                              },
+                              "idClark": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "location": {
+                            "type": "object",
+                            "properties": {
+                              "place": {
+                                "type": "string"
+                              },
+                              "address": {
+                                "type": "object",
+                                "properties": {
+                                  "city": {
+                                    "type": "string"
+                                  },
+                                  "number": {
+                                    "type": "number"
+                                  },
+                                  "postal": {
+                                    "type": "number"
+                                  },
+                                  "street": {
+                                    "type": "string"
+                                  },
+                                  "country": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "latitude": {
+                                "type": "number"
+                              },
+                              "longitude": {
+                                "type": "number"
+                              }
+                            }
+                          },
+                          "expiration": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "serial",
+                          "status",
+                          "location",
+                          "expiration"
+                        ]
+                      },
+                      "example": [
+                        {
+                          "id": "875f6eb1-271b-4080-93c5-966987577a0d",
+                          "serial": "CLA87561271",
+                          "status": {
+                            "at": "2023-08-19T20:14:41.822138",
+                            "id": "60cb278b-be66-405e-9502-5902aace8759",
+                            "type": 0,
+                            "details": "Mise en service.",
+                            "idClark": "875f6eb1-271b-4080-93c5-966987577a0d"
+                          },
+                          "location": {
+                            "place": "École Élémentaire Eugène Varlin",
+                            "address": {
+                              "city": "Claye-Souilly",
+                              "number": 1,
+                              "postal": 77410,
+                              "street": "Rue de l'Église",
+                              "country": "France"
+                            },
+                            "latitude": 48.9401529,
+                            "longitude": 2.6823787
+                          },
+                          "expiration": "2024-08-19T20:14:41.819254"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "304": {},
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "number",
+                          "example": 404
+                        },
+                        "info": {
+                          "type": "string",
+                          "example": "execko"
+                        },
+                        "error": {
+                          "type": "string",
+                          "example": "ERROR_STATUS_DOES_NOT_EXIST"
+                        },
+                        "additional": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "null",
+                              "example": null
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "number",
+                          "example": 500
+                        },
+                        "info": {
+                          "type": "string",
+                          "example": "execko"
+                        },
+                        "error": {
+                          "type": "string",
+                          "example": "ERROR_SOMETHING_WENT_WRONG"
+                        },
+                        "additional": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "connect ECONNREFUSED 127.0.0.1:14999"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "post": {
+        "summary": "/v1/clarks",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {},
+        "tags": []
+      }
+    },
+    "/v1/clarks/center": {
+      "get": {
+        "summary": "/v1/clarks/center",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "content": {
+                      "type": "object",
+                      "properties": {
+                        "lat": {
+                          "type": "number",
+                          "example": 48.94449855678352
+                        },
+                        "lng": {
+                          "type": "number",
+                          "example": 2.677360096169118
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "304": {},
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "number",
+                          "example": 500
+                        },
+                        "info": {
+                          "type": "string",
+                          "example": "execko"
+                        },
+                        "error": {
+                          "type": "string",
+                          "example": "ERROR_SOMETHING_WENT_WRONG"
+                        },
+                        "additional": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "connect ECONNREFUSED ::1:14999"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/v1/clarks/{id}": {
+      "get": {
+        "summary": "/v1/clarks/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "content": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "example": "50a0bcf2-03f2-4cce-989e-8abcf811e913"
+                        },
+                        "serial": {
+                          "type": "string",
+                          "example": "CLA50020324"
+                        },
+                        "status": {
+                          "type": "object",
+                          "properties": {
+                            "at": {
+                              "type": "string",
+                              "example": "2023-08-20T00:21:12.474269+00:00"
+                            },
+                            "id": {
+                              "type": "string",
+                              "example": "edf7a7c0-69ef-4bcc-9a63-5e33e3a20c8e"
+                            },
+                            "type": {
+                              "type": "number",
+                              "example": 3
+                            },
+                            "details": {
+                              "type": "string",
+                              "example": "Aucune historique de status"
+                            },
+                            "idClark": {
+                              "type": "string",
+                              "example": "50a0bcf2-03f2-4cce-989e-8abcf811e913"
+                            }
+                          }
+                        },
+                        "location": {
+                          "type": "object",
+                          "properties": {
+                            "place": {
+                              "type": "string",
+                              "example": "Dentiste Duguet Frederic"
+                            },
+                            "address": {
+                              "type": "object",
+                              "properties": {
+                                "city": {
+                                  "type": "string",
+                                  "example": "Claye-Souilly"
+                                },
+                                "number": {
+                                  "type": "number",
+                                  "example": 1
+                                },
+                                "postal": {
+                                  "type": "number",
+                                  "example": 77410
+                                },
+                                "street": {
+                                  "type": "string",
+                                  "example": "Rue Denis Papin"
+                                },
+                                "country": {
+                                  "type": "string",
+                                  "example": "France"
+                                }
+                              }
+                            },
+                            "latitude": {
+                              "type": "number",
+                              "example": 48.938696817784475
+                            },
+                            "longitude": {
+                              "type": "number",
+                              "example": 2.6492302037225515
+                            }
+                          }
+                        },
+                        "expiration": {
+                          "type": "string",
+                          "example": "2024-08-20T00:20:11.089665"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "412": {
+            "description": "Precondition Failed",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "number",
+                          "example": 412
+                        },
+                        "info": {
+                          "type": "string",
+                          "example": "execko"
+                        },
+                        "error": {
+                          "type": "string",
+                          "example": "ERROR_INVALID_PARAMETERS"
+                        },
+                        "additional": {
+                          "type": "string",
+                          "example": "{}"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "number",
+                          "example": 500
+                        },
+                        "info": {
+                          "type": "string",
+                          "example": "execko"
+                        },
+                        "error": {
+                          "type": "string",
+                          "example": "ERROR_SOMETHING_WENT_WRONG"
+                        },
+                        "additional": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "connect ECONNREFUSED ::1:14999"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "put": {
+        "summary": "/v1/clarks/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {},
+        "tags": []
+      },
+      "delete": {
+        "summary": "/v1/clarks/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {},
+        "tags": []
+      }
+    },
+    "/v1/clarks/{id}/status": {
+      "get": {
+        "summary": "/v1/clarks/{id}/status",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "content": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "at": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "number"
+                          },
+                          "details": {
+                            "type": "string"
+                          },
+                          "idClark": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "at",
+                          "id",
+                          "type",
+                          "details",
+                          "idClark"
+                        ]
+                      },
+                      "example": [
+                        {
+                          "at": "2023-08-19T21:31:58.547083",
+                          "id": "42f7a879-3373-47b2-8abf-41cc20415440",
+                          "type": 2,
+                          "details": "Batterie très faible",
+                          "idClark": "875f6eb1-271b-4080-93c5-966987577a0d"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "304": {},
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "number",
+                          "example": 500
+                        },
+                        "info": {
+                          "type": "string",
+                          "example": "execko"
+                        },
+                        "error": {
+                          "type": "string",
+                          "example": "ERROR_SOMETHING_WENT_WRONG"
+                        },
+                        "additional": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "invalid input syntax for type uuid: \":serial\""
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "post": {
+        "summary": "/v1/clarks/{id}/status",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {},
+        "tags": []
+      }
+    },
+    "/v1/clarks/{id}/status/replacement": {
+      "get": {
+        "summary": "/v1/clarks/{id}/status/replacement",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "tags": [],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "put": {
+        "summary": "/v1/clarks/{id}/status/replacement",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {},
+        "tags": []
+      }
+    },
+    "/v1/statuses": {
+      "get": {
+        "summary": "/v1/statuses",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "content": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "at": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "number"
+                          },
+                          "details": {
+                            "type": "string"
+                          },
+                          "idClark": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "at",
+                          "id",
+                          "type",
+                          "details",
+                          "idClark"
+                        ]
+                      },
+                      "example": [
+                        {
+                          "at": "2023-08-22T16:30:45.243917",
+                          "id": "07c20388-71a7-481f-97c0-d813263456d8",
+                          "type": 0,
+                          "details": "_Status_Commissioning_",
+                          "idClark": "41b78707-37e6-47e1-a5fa-983c760878db"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "304": {}
+        },
+        "tags": [],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/": {
+      "get": {
+        "summary": "/",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "Welcome to our electrifying universe 🌩️"
+                }
+              }
+            }
+          }
+        },
+        "tags": [],
+        "produces": [
+          "application/json"
+        ]
+      }
+    }
+  },
+  "swagger": "2.0",
+  "tags": [
+    {
+      "name": "missions"
+    },
+    {
+      "name": "freelances"
+    },
+    {
+      "name": "types"
+    }
+  ]
+}

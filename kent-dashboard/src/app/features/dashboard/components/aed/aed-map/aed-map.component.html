@@ -1,0 +1,10 @@
+<google-map width="100%" height="600px" [options]="mapOptions" [center]="centerCoords">
+	<map-marker
+		*ngFor="let marker of markers"
+		[clickable]="true"
+		[position]="marker.position"
+		[title]="marker.title"
+		[options]="marker.options"
+		(mapClick)="aedService.setSelectedSerial(marker.serial)"
+	></map-marker>
+</google-map>

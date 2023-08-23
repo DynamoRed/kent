@@ -1,0 +1,14 @@
+<div class="grid">
+	<div class="card" *ngFor="let clark of clarks" (click)="aedService.setSelectedSerial(clark['serial'])">
+		<div class="details">
+			<span class="serial">{{ clark['serial'] }}</span>
+			<span class="expiration" [ngClass]="{'expired': aedService.clarkElectrodesAreExpired(clark['expiration'])}">{{ (aedService.clarkElectrodesAreExpired(clark['expiration']) ? '_Has_Expired_' : '_Expire_') | translate }} {{ '_At_' | translate | lower }} {{ aedService.formatDate(clark['expiration']) }}</span>
+			<span class="place"><img src="assets/icons/pin.svg"> {{ clark['location']['place'] }}</span>
+			<span class="address">{{ aedService.clarkCompleteAddress(clark) }}</span>
+		</div>
+		<div class="status">
+			<img *ngIf="aedService.clarkElectrodesAreExpired(clark['expiration'])" [src]="'assets/icons/alert.svg'" [title]="'_Expired_Pads_' | translate" alt="Status icon">
+			<img *ngIf="!aedService.clarkElectrodesAreExpired(clark['expiration'])" [src]="'assets/icons/' + aedService.statusTypeToValue(clark['status']['type']) + '.svg'" [title]="(clark['status']['details'] | translate) + ' - ' + aedService.translateStatusType(clark['status']['type'])" alt="Status icon">
+		</div>
+	</div>
+</div>

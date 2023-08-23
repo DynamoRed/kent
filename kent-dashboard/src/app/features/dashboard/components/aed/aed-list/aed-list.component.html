@@ -1,0 +1,33 @@
+<div class="list">
+	<table>
+		<thead>
+			<tr>
+				<th class="th-serial">{{ '_Serial_Number_' | translate }}</th>
+				<th class="th-location">{{ '_Location_' | translate }}</th>
+				<th class="th-status">{{ '_Status_' | translate }}</th>
+				<th class="th-expiration">{{ '_Pads_Expiration_Date_' | translate }}</th>
+				<th class="th-more"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let clark of clarks" (click)="aedService.setSelectedSerial(clark['serial'])">
+				<td class="td-serial">{{ clark['serial'] }}</td>
+				<td class="td-location">
+					<img src="assets/icons/pin.svg">
+					<div class="td-location-details">
+						<span>{{ clark['location']['place'] }}</span>
+						<span>{{ aedService.clarkCompleteAddress(clark) }}</span>
+					</div>
+				</td>
+				<td class="td-status">
+					<img *ngIf="aedService.clarkElectrodesAreExpired(clark['expiration'])" [src]="'assets/icons/alert.svg'" [title]="'_Expired_Pads_' | translate" alt="Status icon">
+					<img *ngIf="!aedService.clarkElectrodesAreExpired(clark['expiration'])" [src]="'assets/icons/' + aedService.statusTypeToValue(clark['status']['type']) + '.svg'" [title]="(clark['status']['details'] | translate) + ' - ' + aedService.translateStatusType(clark['status']['type'])" alt="Status icon">
+				</td>
+				<td class="td-expiration" [ngClass]="{'expired': aedService.clarkElectrodesAreExpired(clark['expiration'])}">{{ aedService.formatDate(clark['expiration']) }}</td>
+				<td class="td-more">
+					<img src="assets/icons/drop.svg" [title]="'_Details_' | translate" alt="Details">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

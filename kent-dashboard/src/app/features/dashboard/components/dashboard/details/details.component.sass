@@ -1,0 +1,32 @@
+@use 'assets/styles/colors.sass'
+
+.details
+	display: flex
+	flex-direction: column
+	width: 100%
+
+	.stats
+		display: flex
+		align-items: center
+		margin-bottom: 16px
+
+		@media (max-width: 1150px)
+			flex-direction: column
+
+		.stat-card
+			width: 100%
+			display: flex
+			align-items: center
+			justify-content: space-between
+			background-color: colors.$wht-clr
+			border-radius: 24px
+			padding: 24px
+			margin: 0 8px 16px
+			text-transform: uppercase
+			font-size: 12px
+			font-weight: 900
+
+			span:nth-child(2)
+				font-size: 16px
+				color: colors.$lifeaz-clr
+

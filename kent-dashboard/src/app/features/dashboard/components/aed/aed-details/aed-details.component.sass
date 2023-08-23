@@ -1,0 +1,116 @@
+@use 'assets/styles/colors.sass'
+
+$size-bezel: .3rem
+
+.details
+	display: flex
+	flex-direction: column
+
+	.header
+		margin-bottom: 32px
+		display: flex
+		align-items: center
+		flex-wrap: wrap
+
+		@media (max-width: 1150px)
+			justify-content: space-between
+
+		> *
+			margin: 4px
+
+		.search
+			display: flex
+			align-items: center
+
+			@media (max-width: 1150px)
+				width: 100%
+
+			img
+				width: 16px
+				height: 30px
+				padding-right: 12px
+				border: 1px solid colors.$blk-clr
+				border-radius: 0 32px 32px 0
+				border-left: none
+				cursor: pointer
+
+			.search-input
+				position: relative
+
+				@media (max-width: 1150px)
+					width: 100%
+
+				input
+					box-sizing: border-box
+					display: block
+					width: 300px
+					border: 1px solid colors.$blk-clr
+					height: 32px
+					padding: 0 16px
+					color: colors.$blk-clr
+					background: colors.$bg-clr
+					border-radius: 32px 0 0 32px
+					border-right: none
+
+					@media (max-width: 1150px)
+						width: 100%
+
+					&:disabled
+						cursor: not-allowed
+
+					&:focus,
+					&:not(:placeholder-shown)
+						& + span
+							transform: translate(0, -60%) scale(.8)
+							color: colors.$lifeaz-clr
+							line-height: 0.5
+
+
+				span
+					position: absolute
+					top: 0
+					left: 0
+					padding: calc($size-bezel * 0.75) calc($size-bezel * .5)
+					margin: calc($size-bezel * .5) calc($size-bezel * .5 + 16px)
+					white-space: nowrap
+					transform: translate(0, 0)
+					transform-origin: 0 0
+					background: colors.$bg-clr
+					color: colors.$grey-clr
+					transition: transform 120ms ease-in, line-height 120ms ease-in
+					font-weight: 400
+					line-height: 1.2
+
+		.results-count
+			margin-left: 8px
+
+		.filter
+			display: flex
+			align-items: center
+
+			a
+				display: flex
+				align-items: center
+				border: 1px solid colors.$blk-clr
+				padding: 0 16px
+				height: 30px
+				cursor: pointer
+				user-select: none
+				border-radius: 32px
+
+				&.active
+					background-color: colors.$lifeaz-clr
+					color: colors.$wht-clr
+					fill: colors.$wht-clr
+
+				&.icn
+					img,
+					svg
+						margin: 0 4px
+
+				img,
+				svg
+					width: 16px
+					margin-right: 8px
+
+

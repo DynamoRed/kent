@@ -1,0 +1,43 @@
+@use 'assets/styles/colors.sass'
+
+.card
+	width: fit-content
+
+	.actions
+		user-select: none
+		display: flex
+		justify-content: flex-end
+		align-items: center
+		width: 100%
+
+		img
+			cursor: pointer
+			width: 24px
+
+h2
+	font-weight: 900
+	text-transform: uppercase
+	color: colors.$lifeaz-clr
+	margin-top: -8px
+
+.preferences
+	color: colors.$blk-clr
+	display: flex
+	flex-direction: column
+	width: 100%
+	margin-top: 32px
+
+	.preference
+		display: flex
+		justify-content: space-between
+		align-items: center
+		margin: 4px 0
+
+		.details
+			display: flex
+			align-items: center
+			margin-right: 96px
+
+			@media (max-width: 1150px)
+				margin-right: 16px
+

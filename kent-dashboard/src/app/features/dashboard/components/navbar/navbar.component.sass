@@ -1,0 +1,137 @@
+@use 'assets/styles/colors.sass'
+
+.navbar-container
+	position: fixed
+	top: 0
+	left: 0
+	height: 100vh
+	width: 300px
+	user-select: none
+	background-color: colors.$lifeaz-clr
+	color: colors.$wht-clr
+	display: flex
+	flex-direction: column
+	justify-content: flex-start
+	align-items: center
+	font-weight: 700
+
+	@media (max-width: 1150px)
+		height: fit-content
+		width: calc(100vw - 48px)
+		padding: 0 24px
+
+
+	.mobile-actions
+		display: flex
+		justify-content: flex-end
+		align-content: center
+		padding: 8px 0
+
+		img
+			width: 24px
+			margin-left: 8px
+
+	.head
+		display: flex
+		flex-direction: column
+		margin: 48px
+
+		@media (max-width: 1150px)
+			width: 100%
+			flex-direction: row
+			justify-content: space-between
+			align-items: center
+			margin: 12px 0
+
+		.logo
+			display: flex
+			flex-direction: column
+
+			font-size: 12px
+
+			img
+				@media (max-width: 1150px)
+					height: 16px
+
+	a
+		cursor: pointer
+		text-decoration: none
+
+		&.navmenu-opt
+			color: colors.$wht-clr
+
+	.navbar
+		display: flex
+		flex-direction: column
+		height: 100%
+		width: 100%
+		justify-content: space-between
+
+		.navlist
+			display: flex
+			flex-direction: column
+			align-items: flex-end
+
+			@media (max-width: 1150px)
+				align-items: flex-start
+				margin-bottom: 24px
+
+			.navmenu
+				display: flex
+				flex-direction: column
+				align-items: center
+
+				&.opened,
+				&:hover
+					.navmenu-content
+						display: flex
+						height: fit-content
+
+					.dropdown
+						transform: rotate(90deg)
+
+				.navmenu-title
+					display: flex
+					text-transform: uppercase
+					font-size: 18px
+					color: colors.$blk-clr
+					background-color: colors.$bg-clr
+					padding: 16px 0 16px 32px
+					border-radius: 32px 0 0 32px
+					cursor: pointer
+
+					img
+						width: 24px
+						margin-right: 12px
+
+						&.dropdown
+							margin-right: 16px
+							margin-left: 48px
+							transition: transform .3s
+
+				.navmenu-content
+					display: none
+					height: 0
+					transform: height .3s
+					flex-direction: column
+					font-weight: 400
+					font-size: 14px
+					text-transform: uppercase
+
+					.navmenu-opt
+						border-left: 3px solid rgba(255, 255, 255, .2)
+						padding: 12px 24px
+
+						&:first-child
+							margin-top: 4px
+
+						&.active
+							border-left: 3px solid rgba(255, 255, 255, .4)
+							font-weight: 700
+
+	.bottom
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		margin: 24px

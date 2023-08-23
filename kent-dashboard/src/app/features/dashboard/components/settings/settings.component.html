@@ -1,0 +1,20 @@
+<div *ngIf="opened" class="popup">
+	<div class="card">
+		<div class="actions">
+			<img (click)="preferencesService.toggle(false)" src="assets/icons/close.svg" [title]="'_Close_' | translate" alt="Close">
+		</div>
+		<h2>{{ '_My_Preferences_' | translate }}</h2>
+		<div class="preferences">
+			<div class="preference">
+				<div class="details">
+					<span>{{ '_Preference_Language_' | translate }}</span>
+				</div>
+				<div class="choices">
+					<a *ngFor="let lang of translationService.getLangs()" [ngClass]="{'active': translationService.getLang() === lang}" (click)="translationService.setLang(lang)">
+						<span>{{ translationService.getLangName(lang) }}</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

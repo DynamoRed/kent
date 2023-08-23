@@ -1,0 +1,7 @@
+{
+	"statuses": "/statuses",
+	"clarks": "/clarks",
+	"clarkStatus": "/clarks/:uuid/status",
+	"clarkReplacementStatus": "/clarks/:uuid/status/replacement",
+	"clarkCenterCoords": "/clarks/center"
+}

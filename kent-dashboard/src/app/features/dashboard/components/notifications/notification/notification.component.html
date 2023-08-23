@@ -1,0 +1,8 @@
+<div class="notification" *ngIf="notification">
+	<div class="marge">
+		<img [src]="'assets/icons/' + (notification.type | lower) + '.svg'" alt="Notification icon">
+	</div>
+	<div class="content">
+		{{ notification.content | translate }}
+	</div>
+</div>

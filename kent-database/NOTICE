@@ -1,0 +1,6 @@
+Kent Database
+Copyright 2023 Raphaël H.B.
+
+Portions of this software were developed by third-party software vendors:
+- pgcrypto (PostgreSQL Crypto module), Copyright (c) 2023
+- postgis (PostgreSQL Topology module), Copyright (c) 2023

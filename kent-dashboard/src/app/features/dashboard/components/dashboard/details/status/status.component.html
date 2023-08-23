@@ -1,0 +1,23 @@
+<div class="history">
+	<span>{{ '_Recent_Status_History_' | translate }}</span>
+	<table>
+		<thead>
+			<tr>
+				<th class="th-serial">{{ '_Serial_Number_' | translate }}</th>
+				<th class="th-date" *ngIf="!preferencesService.isMobile()">{{ '_Date_' | translate }}</th>
+				<th class="th-status">{{ '_Status_' | translate }}</th>
+				<th>{{ '_Details_' | translate }}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let status of statuses">
+				<td class="td-serial">{{ getClarkSerial(status['idClark']) }}</td>
+				<td class="td-date" *ngIf="!preferencesService.isMobile()">{{ aedService.formatDate(status['at'], true) }}</td>
+				<td class="td-status">
+					<img [src]="'assets/icons/' + aedService.statusTypeToValue(status['type']) + '.svg'" [title]="aedService.translateStatusType(status['type'])" alt="Status icon">
+				</td>
+				<td>{{ status['details'] | translate }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

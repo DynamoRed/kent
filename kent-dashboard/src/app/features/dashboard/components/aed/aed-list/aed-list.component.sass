@@ -1,0 +1,42 @@
+@use 'assets/styles/colors.sass'
+
+.list
+	margin: 0 16px
+
+th.th-status
+	text-align: center
+
+td
+	&.td-serial
+		font-weight: 900
+		vertical-align: top
+
+	&.td-location
+		display: flex
+		align-items: flex-start
+
+		.td-location-details
+			display: flex
+			flex-direction: column
+			margin-left: 8px
+
+			span:first-child
+				font-weight: 900
+
+	&.td-status
+		vertical-align: top
+		text-align: center
+
+	&.td-expiration
+		vertical-align: top
+		color: colors.$grey-clr
+
+		&.expired
+			color: red
+
+	&.td-more
+		vertical-align: top
+
+		img
+			width: 24px
+			cursor: pointer

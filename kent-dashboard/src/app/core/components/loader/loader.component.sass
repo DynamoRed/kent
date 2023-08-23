@@ -1,0 +1,17 @@
+@use 'assets/styles/animations'
+
+.loader
+	display: flex
+	justify-content: center
+	align-items: center
+	position: fixed
+	top: 0
+	left: 0
+	width: 100vw
+	height: 100vh
+	background-color: rgba(0, 0, 0, .7)
+	animation: ease-loader 1s 1 ease-in-out
+
+	img
+		width: 72px
+		animation: rotating 1s infinite ease-in-out
